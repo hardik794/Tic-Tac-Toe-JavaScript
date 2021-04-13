@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <script>
+        var i = 0;
+        var flag = 0;
+        var j = 1;
+        function fn(x) {
+
+             if (x.innerHTML == "")
+                         
+            {
+                if (i % 2 == 0) {
+                    x.innerHTML = "X";
+                }
+                else {
+                    x.innerHTML = "O";
+                }
+                i++;
+            }
+            win('1x1','1x2','1x3');
+            win('2x1','2x2','2x3');
+            win('3x1','3x2','3x3');
+            win('1x1','2x1','3x1');
+            win('1x2','2x2','3x2');
+            win('1x3','2x3','3x3');
+            win('1x1','2x2','3x3');
+            win('1x3','2x2','3x1');
+        }
+        function win(x,y,z)
+        {
+              var a = document.getElementById(x);
+              var b = document.getElementById(y);
+              var c = document.getElementById(z);
+
+              if(a.innerHTML=="X" && b.innerHTML=="X" && c.innerHTML=="X")
+              {
+                  alert("X Win");
+                  flag=1;
+              }
+              if(a.innerHTML=="O" && b.innerHTML=="O" && c.innerHTML=="O")
+              {
+                  alert("O Win");
+                  flag=1;
+              }
+              j++;
+              if(j=="72" && flag=="0")
+              {
+                  alert("Match Draw");
+                  flag=1;
+              }
+              if(flag=="1")
+              {
+                  fn1();
+              }
+        }
+        function fn1()
+        {
+            var a = document.getElementById("1x1");
+            var b = document.getElementById("1x2");
+            var c = document.getElementById("1x3");
+            var d = document.getElementById("2x1");
+            var e = document.getElementById("2x2");
+            var f = document.getElementById("2x3");
+            var g = document.getElementById("3x1");
+            var h = document.getElementById("3x2");
+            var i = document.getElementById("3x3");
+
+            a.innerHTML = "";
+            b.innerHTML = "";
+            c.innerHTML = "";
+            d.innerHTML = "";
+            e.innerHTML = "";
+            f.innerHTML = "";
+            g.innerHTML = "";
+            h.innerHTML = "";
+            i.innerHTML = "";
+
+            flag=0;
+            i=0;
+            j=0;
+        }
+    </script>
+    <style>
+        body{
+            background-color: black;
+        }
+        #set {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #divmain {
+            display: flex;
+            border: 1px solid black;
+            height: 396px;
+            width: 396px;
+            flex-wrap: wrap;
+        }
+
+        .divsub {
+            border: 1px solid rgb(255, 255, 255);
+            height: 130px;
+            color: beige;
+            width: 130px;
+            text-align: center;
+            font-size: 115px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="set">
+        <div id="divmain">
+            <div class="divsub" id="1x1" onclick="fn(this)"></div>
+            <div class="divsub" id="1x2" onclick="fn(this)"></div>
+            <div class="divsub" id="1x3" onclick="fn(this)"></div>
+            <div class="divsub" id="2x1" onclick="fn(this)"></div>
+            <div class="divsub" id="2x2" onclick="fn(this)"></div>
+            <div class="divsub" id="2x3" onclick="fn(this)"></div>
+            <div class="divsub" id="3x1" onclick="fn(this)"></div>
+            <div class="divsub" id="3x2" onclick="fn(this)"></div>
+            <div class="divsub" id="3x3" onclick="fn(this)"></div>
+        </div>
+    </div>
+</body>
+
+</html>
